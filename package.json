@@ -3,28 +3,36 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:server && vite build",
-    "build:server": "tsc",
+    "build:server": "vue-tsc --build && tsc",
     "dev": "npm run build:server && node dist/server.js --dev",
-    "lint": "biome lint --write .",
+    "lint": "eslint ./src/",
     "start": "node dist/server.js"
   },
   "dependencies": {
     "@fastify/vite": "8.0.0-alpha.2",
-    "fastify": "^5.2.1"
+    "@fastify/vue": "^0.5.0",
+    "pinia": "^2.3.1",
+    "fastify": "^5.2.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
+    "@eslint/js": "^9.19.0",
     "@types/node": "^20.14.11",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitest/eslint-plugin": "^1.1.25",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.14.0",
     "typescript": "^5.5.3",
-    "vite": "^6.1.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@biomejs/biome"
-    ],
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+    "typescript-eslint": "^8.23.0",
+    "vite-plugin-vue-devtools": "^7.7.0",
+    "vitest": "^3.0.2",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
   }
 }

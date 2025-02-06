@@ -4,8 +4,8 @@
     "allowSyntheticDefaultImports": true,
     "composite": true,
     "lib": ["es2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noEmit": false,
     "outDir": "dist",
     "removeComments": true,
@@ -15,6 +15,6 @@
     "strict": true,
     "target": "es2022"
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/client/**/*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "src/client/**/__tests__/*"]
 }

@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist", "src/client/**/__tests__/*"]
 }

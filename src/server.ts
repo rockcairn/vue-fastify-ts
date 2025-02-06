@@ -4,6 +4,12 @@ import Fastify from 'fastify';
 
 const server = Fastify({ logger: true });
 
+let hello: string;
+
+
+hello = 'hello';
+console.log(`${hello} mom`);
+
 await server.register(FastifyVite, {
 	root: resolve(import.meta.dirname, '../'),
 	dev: process.argv.includes('--dev'),

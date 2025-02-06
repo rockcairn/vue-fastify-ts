@@ -1,11 +1,11 @@
 import { join } from 'node:path'
 import { viteFastify } from '@fastify/vite/plugin'
-import viteReact from '@vitejs/plugin-react'
+import vue from '@vitejs/plugin-vue'
 
 export default {
   root: join(import.meta.dirname, 'src/client'),
   plugins: [
-    viteReact(),
+    vue(),
     viteFastify()
   ],
   build: {
