@@ -36,7 +36,6 @@ const fetchData = async () => {
       throw new Error("Failed to fetch data");
     }
     data.value = await response.json() as [mountain];
-    // data.value = [{name: "unknown"}]
   } catch (err) {
     error.value = (err as Error).message;
   } finally {
