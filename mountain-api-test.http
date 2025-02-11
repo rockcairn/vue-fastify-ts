@@ -3,3 +3,6 @@ GET  http://127.0.0.1:3000/api/outdoor/mountains HTTP/1.1
 
 ### get a single mountain
 GET  http://127.0.0.1:3000/api/outdoor/mountains/4 HTTP/1.1
+
+### get base path
+GET  http://127.0.0.1:3000/api/outdoor HTTP/1.1

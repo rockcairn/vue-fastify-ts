@@ -3,10 +3,9 @@
 
   <h1>Colorado Mountains</h1>
   <div v-if="loading">Loading...</div>
-  <div v-else-if="error" class="error">Error: {{ error }}</div>
   <div v-else-if="data != null">
     <ol>
-      <li v-for="mountain in data">
+      <li v-for="(mountain, index) in data" :key="index">
         {{ mountain.name }}
       </li>
     </ol>
@@ -15,32 +14,36 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { getMountains } from "../api/MountainService";
 
 const message = "Welcome to @fastify/vue!";
 
 type mountain = {
   name: string;
 };
-const data = ref<[mountain] | null>(null);
+
+const data = ref<[mountain]>();
 const loading = ref<boolean>(true);
-const error = ref<string | null>(null);
+// const error = ref<string | null>(null);
 
 const fetchData = async () => {
-  try {
-    const response = await fetch("/api/outdoor/mountains", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    data.value = await response.json() as [mountain];
-  } catch (err) {
-    error.value = (err as Error).message;
-  } finally {
+  
+  // try {
+  //   const response = await fetch("/api/outdoor/mountains", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   if (!response.ok) {
+  //     throw new Error("Failed to fetch data");
+  //   }
+  //   data.value = await response.json() as [mountain];
+  // } catch (err) {
+  //   error.value = (err as Error).message;
+  // } finally {
+    data.value = await getMountains();
     loading.value = false;
-  }
+  // }
 };
 
 onMounted(fetchData);

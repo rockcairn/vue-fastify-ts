@@ -12,4 +12,14 @@ export default {
     emptyOutDir: true,
     outDir: join(import.meta.dirname, 'dist/client'),
   },
+  test: {
+
+    globals: true,
+    environment: "jsdom",
+    browser: {
+      provider: 'playwright',
+      enabled: true,
+      headless: true,
+      },
+  },
 };
