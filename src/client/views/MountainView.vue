@@ -6,7 +6,7 @@
   <div v-else-if="data != null">
     <ol>
       <li v-for="(mountain, index) in data" :key="index">
-        {{ mountain.name }}
+        {{ mountain.name }} ({{ mountain.height }} ft.) | {{ mountain.mountain_range }}
       </li>
     </ol>
   </div>
@@ -20,6 +20,8 @@ const message = "...using @fastify/vue!";
 
 type mountain = {
   name: string;
+  height: number;
+  mountain_range: string;
 };
 
 const data = ref<[mountain]>();

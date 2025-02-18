@@ -9,19 +9,19 @@ import MountainView from '../MountainView.vue'
 describe('HelloWorld', () => {
   const mocks = vi.hoisted(() => {
     return {
-      testMountain: 'my test mountain'
+      testMountain: {name: 'my test mountain', height: 1000, mountain_range: 'my range'}
     }
   })
     beforeEach(() => {
 
        vi.mock('../../api/MountainService', () => ({
-            getMountains: vi.fn(async () => [{name: mocks.testMountain}]),
+            getMountains: vi.fn(async () => [{name: mocks.testMountain.name, height: mocks.testMountain.height, mountain_range: mocks.testMountain.mountain_range }]),
         }));
     }) 
   it('renders properly', async () => {
     render(MountainView, { })
     screen.getByText('Loading...');
     await flushPromises();
-    screen.getByText(mocks.testMountain);
+    screen.getByText(`${mocks.testMountain.name} (${mocks.testMountain.height} ft.) | ${mocks.testMountain.mountain_range}`);
   })
 })
