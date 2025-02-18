@@ -8,7 +8,11 @@
     "lint": "eslint ./src/",
     "test": "vitest run",
     "test:type": "vitest --ui --typecheck",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "migrate": "flyway -c db/flyway.cjs migrate",
+    "db:migrate": "pnpm flyway -c db/flyway.cjs migrate",
+    "db:clean": "pnpm flyway clean -c db/flyway.cjs",
+    "db:recreate": "pnpm db:clean db:migrate" 
   },
   "dependencies": {
     "@fastify/env": "^5.0.2",
@@ -20,6 +24,7 @@
     "fastify": "^5.2.1",
     "knex": "^3.1.0",
     "mysql": "^2.18.1",
+    "node-flywaydb": "^3.0.7",
     "pinia": "^2.3.1",
     "ts-node": "^10.9.2",
     "vue": "^3.5.13",

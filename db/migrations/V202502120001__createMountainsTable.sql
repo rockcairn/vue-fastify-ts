@@ -1,4 +1,4 @@
-use javascriptdb;
+-- use javascriptdb;
 
 create table mountains
 (
