@@ -1,7 +1,6 @@
 <template>
   <h1>{{ message }}</h1>
-
-  <h1>Colorado Mountains</h1>
+  <h3>Colorado Mountains</h3>
   <div v-if="loading">Loading...</div>
   <div v-else-if="data != null">
     <ol>
@@ -16,7 +15,7 @@
 import { ref, onMounted } from "vue";
 import { getMountains } from "../api/MountainService";
 
-const message = "Welcome to @fastify/vue!";
+const message = "...using @fastify/vue!";
 
 type mountain = {
   name: string;
