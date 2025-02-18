@@ -1,6 +1,7 @@
 <template>
-  <h1>{{ message }}</h1>
-  <h3>Colorado Mountains</h3>
+  <div class="mountains">
+    <h1>Mountains: Colorado Mountains <span class="small-note">{{ message }}</span></h1>
+  </div>
   <div v-if="loading">Loading...</div>
   <div v-else-if="data != null">
     <ol>
@@ -59,5 +60,11 @@ export function getMeta() {
 <style scoped>
 img {
   width: 100%;
+}
+.mountains {
+  text-align: center;
+}
+.small-note {
+  font-size: 14px;
 }
 </style>
