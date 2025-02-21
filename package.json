@@ -12,13 +12,14 @@
     "migrate": "flyway -c db/flyway.cjs migrate",
     "db:migrate": "pnpm flyway -c db/flyway.cjs migrate",
     "db:clean": "pnpm flyway clean -c db/flyway.cjs",
-    "db:recreate": "pnpm db:clean db:migrate" 
+    "db:recreate": "pnpm db:clean db:migrate"
   },
   "dependencies": {
     "@fastify/env": "^5.0.2",
     "@fastify/one-line-logger": "latest",
     "@fastify/vite": "8.0.0-alpha.2",
     "@fastify/vue": "1.0.0-alpha.5",
+    "@pinia/testing": "^1.0.0",
     "@testing-library/vue": "^8.1.0",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
