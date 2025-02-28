@@ -1,8 +1,8 @@
 <template>
   <div class='home'>
-    <h1>Home: Counter</h1>
+    <h1>Home</h1>
   <div class="count">
-    {{ store.count }}
+    Counter: [ {{ store.count }} ]
   </div>
   <div class="buttons">
     <button @click="store.decrement()">-</button>

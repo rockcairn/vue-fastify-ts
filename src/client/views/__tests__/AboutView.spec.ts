@@ -1,30 +1,25 @@
-import { screen, render, fireEvent } from '@testing-library/vue';
-import { describe, expect, it, vi } from 'vitest';
 import { createTestingPinia } from '@pinia/testing';
+import { render, screen } from '@testing-library/vue';
+import { describe, it, vi } from 'vitest';
 import { useCounterStore } from '../../stores/counter';
 
-import HomeView from '../HomeView.vue';
 import { flushPromises } from '@vue/test-utils';
+import AboutView from '../AboutView.vue';
 
-describe('HomeView', () => {
+describe('AboutView', () => {
   it('renders counter properly', async () => {
     const pinia = createTestingPinia({ createSpy: vi.fn });
-    render(HomeView, {
+    render(AboutView, {
       global: {
         plugins: [pinia],
       },
     });
 
-    screen.getByText(/Home/i);
+    screen.getByText(/About/i);
+
     const store = useCounterStore(); // Access the mocked store
     store.count = 5; // Manually set count for the test
     await flushPromises();
-    screen.getByText(/Counter: \[ 5 \]/i);
-
-    expect(store.oddOrEven).toBe('odd');
-
-    await fireEvent.click(screen.getByRole('button', { name: '+' }));
-    expect(store.increment).toHaveBeenCalled();
+    screen.getByText(/Value is: \[ 5 \]/i);
   });
 });
-await flushPromises();

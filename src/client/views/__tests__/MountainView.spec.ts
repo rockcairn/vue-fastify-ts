@@ -29,6 +29,7 @@ describe('MountainView', () => {
   it('renders properly', async () => {
     render(MountainView, {});
     screen.getByText('Loading...');
+    screen.getByText(/Colorado Mountains/i);
     await flushPromises();
     screen.getByText(
       `${mocks.testMountain.name} (${mocks.testMountain.height} ft.) | ${mocks.testMountain.mountain_range}`

@@ -1,14 +1,17 @@
 <template>
   <div class="mountains">
-    <h1>Mountains: Colorado Mountains <span class="small-note">{{ message }}</span></h1>
+    <h1>Mountains</h1>
+    <h3>Colorado Mountains <span class="small-note">{{ message }}</span></h3>
   </div>
   <div v-if="loading">Loading...</div>
   <div v-else-if="data != null">
+    <div class="mountains">
     <ol>
       <li v-for="(mountain, index) in data" :key="index">
         {{ mountain.name }} ({{ mountain.height }} ft.) | {{ mountain.mountain_range }}
       </li>
     </ol>
+  </div>
   </div>
 </template>
 
@@ -26,26 +29,10 @@ type mountain = {
 
 const data = ref<[mountain]>();
 const loading = ref<boolean>(true);
-// const error = ref<string | null>(null);
 
 const fetchData = async () => {
-  
-  // try {
-  //   const response = await fetch("/api/outdoor/mountains", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error("Failed to fetch data");
-  //   }
-  //   data.value = await response.json() as [mountain];
-  // } catch (err) {
-  //   error.value = (err as Error).message;
-  // } finally {
     data.value = await getMountains();
     loading.value = false;
-  // }
 };
 
 onMounted(fetchData);
