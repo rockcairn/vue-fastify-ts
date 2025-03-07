@@ -5,13 +5,13 @@
   </div>
   <div v-if="loading">Loading...</div>
   <div v-else-if="data != null">
-    <div class="mountains">
-    <ol>
-      <li v-for="(mountain, index) in data" :key="index">
-        {{ mountain.name }} ({{ mountain.height }} ft.) | {{ mountain.mountain_range }}
-      </li>
-    </ol>
-  </div>
+    <div class="center-list">
+      <ol>
+        <li v-for="(mountain, index) in data" :key="index">
+          {{ index+1 }}. {{ mountain.name }} ({{ mountain.height }} ft.) | {{ mountain.mountain_range }}
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
@@ -52,6 +52,12 @@ img {
 }
 .mountains {
   text-align: center;
+}
+.center-list {
+  text-align: center;
+  ol {
+    list-style-type: none;
+  }
 }
 .small-note {
   font-size: 14px;
