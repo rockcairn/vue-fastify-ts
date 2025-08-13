@@ -1,7 +1,6 @@
-import { describe, it, vi } from 'vitest';
+import { beforeEach, describe, it, vi } from 'vitest';
 import { flushPromises } from '@vue/test-utils';
 import { screen, render } from '@testing-library/vue';
-import { beforeEach } from 'node:test';
 
 import MountainView from '../MountainView.vue';
 
@@ -32,7 +31,7 @@ describe('MountainView', () => {
     screen.getByText(/Colorado Mountains/i);
     await flushPromises();
     screen.getByText(
-      `${mocks.testMountain.name} (${mocks.testMountain.height} ft.) | ${mocks.testMountain.mountain_range}`
+      `1. ${mocks.testMountain.name} (${mocks.testMountain.height} ft.) | ${mocks.testMountain.mountain_range}`
     );
   });
 });

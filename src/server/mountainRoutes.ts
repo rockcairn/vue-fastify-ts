@@ -1,15 +1,14 @@
-import knex from "knex";
-import db from './knexconfig.js';
-import mountains from "./mountains.js";
 import { FastifyInstance } from 'fastify';
-import databaseConnection from "./knexconfig.js";
+import databaseConnection from './knexconfig.js';
+import mountains from './mountains.js';
 
 class mountainRoutes {
-
   routes(fastify: FastifyInstance) {
-    fastify.get("/api/outdoor/mountains", async (req, reply) => {
+    fastify.get('/api/outdoor/mountains', async (req, reply) => {
       try {
-        const mountains = await databaseConnection(fastify).select('*').from('mountains');
+        const mountains = await databaseConnection(fastify)
+          .select('*')
+          .from('mountains');
         reply.send(mountains);
       } catch (err) {
         fastify.log.error(err);
@@ -18,7 +17,7 @@ class mountainRoutes {
       // reply.send(mountains);
     });
 
-    fastify.get("/api/outdoor/mountains/:id", (req, reply) => {
+    fastify.get('/api/outdoor/mountains/:id', (req, reply) => {
       const { id } = req.params as { id: string };
       const mountain = mountains.find((mountain) => mountain.id == id);
       reply.send(mountain);

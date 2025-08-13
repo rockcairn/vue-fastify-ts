@@ -13,6 +13,6 @@ export async function getMountains(): Promise<[mountain]> {
     return (await response.json()) as [mountain];
   } catch (err) {
     console.log((err as Error).message);
-    return [{ name: 'unkonwn', height: 0, mountain_range: 'unknown' }];
+    return [{ name: 'unknown', height: 0, mountain_range: 'unknown' }];
   }
 }
